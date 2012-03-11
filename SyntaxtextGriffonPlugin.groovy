@@ -19,31 +19,65 @@
  */
 class SyntaxtextGriffonPlugin {
     // the plugin version
-    def version = "0.1"
+    String version = '0.2'
     // the version or versions of Griffon the plugin is designed for
-    def griffonVersion = '0.9.2 > *' 
+    String griffonVersion = '0.9.5 > *'
     // the other plugins this plugin depends on
-    def dependsOn = [:]
+    Map dependsOn = [swing: '0.9.5']
     // resources that are included in plugin packaging
-    def pluginIncludes = []
+    List pluginIncludes = []
     // the plugin license
-    def license = 'Apache Software License 2.0'
+    String license = 'Apache Software License 2.0'
     // Toolkit compatibility. No value means compatible with all
     // Valid values are: swing, javafx, swt, pivot, gtk
-    def toolkits = ['swing']
+    List toolkits = ['swing']
     // Platform compatibility. No value means compatible with all
     // Valid values are:
     // linux, linux64, windows, windows64, macosx, macosx64, solaris
-    def platforms = []
+    List platforms = []
+    // URL where documentation can be found
+    String documentation = ''
+    // URL where source can be found
+    String source = 'https://github.com/griffon/griffon-syntaxtext-plugin'
 
-    def author = 'Andres Almiray'
-    def authorEmail = 'aalmiray@users.sourceforge.net'
-    def title = 'RSyntaxTextArea support'
-    def description = '''
-RSyntaxTextArea support
-http://sourceforge.net/projects/rsyntaxtextarea/
+    List authors = [
+        [
+            name: 'Andres Almiray',
+            email: 'aalmiray@yahoo.com'
+        ]
+    ]
+    String title = 'Editor with syntax highlighting'
+    // accepts Markdown syntax. See http://daringfireball.net/projects/markdown/ for details
+    String description = '''
+Enables the usage of [RSyntaxTextArea][1] and friend classes (Autocomplete and Spellcheck).
+
+Usage
+-----
+
+The following nodes will become available on a View script upon installing this plugin
+
+| *Node*            | *Type*             | 
+| ----------------- | ------------------ |
+| rtextArea         | `RTextArea`        |
+| rtsyntaxtTextArea | `RSyntaxtTextArea` |
+| rtextScrollPane   | `RTextScrollPane`  |
+| textEditorPane    | `TextEditorPane`   |
+
+### Example
+
+        import org.fife.ui.rsyntaxtextarea.SyntaxConstants
+        application(title: 'ide',
+          pack: true,
+          locationByPlatform:true,
+          iconImage: imageIcon('/griffon-icon-48x48.png').image,
+          iconImages: [imageIcon('/griffon-icon-48x48.png').image,
+                       imageIcon('/griffon-icon-32x32.png').image,
+                       imageIcon('/griffon-icon-16x16.png').image]) {
+            rtextScrollPane {
+                rsyntaxTextArea(syntaxEditingStyle: SyntaxConstants.SYNTAX_STYLE_JAVA)
+            }
+        }
+
+[1]: http://sourceforge.net/projects/rsyntaxtextarea
 '''
-
-    // URL to the plugin's documentation
-    def documentation = 'http://griffon.codehaus.org/Syntaxtext+Plugin'
 }
