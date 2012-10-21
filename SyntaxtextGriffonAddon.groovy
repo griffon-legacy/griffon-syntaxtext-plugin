@@ -22,7 +22,7 @@ import org.fife.ui.rsyntaxtextarea.*
  * @author Andres.Almiray
  */
 class SyntaxtextGriffonAddon {
-    def factories = [
+    Map factories = [
         rtextArea: RTextArea,
         rsyntaxTextArea: RSyntaxTextArea,
         rtextScrollPane: new ScrollPaneFactory(RTextScrollPane),

@@ -8,9 +8,9 @@ griffon.project.dependency.resolution = {
         flatDir name: "syntaxtextLibDir", dirs: ["${basePath}lib"]
     }
     dependencies {
-        compile 'com.fifesoft:rsyntaxtextarea:1.5.1',
-                'com.fifesoft:autocomplete:1.5.1',
-                'com.fifesoft:spellchecker:1.5.0'
+        compile 'com.fifesoft:rsyntaxtextarea:2.0.4.1',
+                'com.fifesoft:autocomplete:2.0.4',
+                'com.fifesoft:spellchecker:2.0.4'
     }
 }
 
